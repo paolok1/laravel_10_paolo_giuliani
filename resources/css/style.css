@@ -1,0 +1,49 @@
+body{
+      background: 
+    linear-gradient(rgba(222, 206, 24, 0.368), rgba(211, 51, 51, 0.5)),
+    url(../../public/desktopbookshop.jpg);
+    background-size:100%;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+.header{
+    min-height:40vh;
+}
+
+.homepage{
+    color: rgb(27, 26, 25);
+}
+
+.form-control{
+    background:white;
+    color: black;
+}
+
+.box-bg{
+    background-color: rgb(117, 132, 153, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13px);
+}
+
+
+.card-custom{
+    height: 50px;
+    width: 10%;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 5px;
+
+}
+
+.h4{
+    color: white;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
