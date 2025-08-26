@@ -31,15 +31,14 @@ public function store(Request $request){
         $title= $request->title;
         $author= $request->author;
         $description= $request->description;
-        $email= $request->mail;
+        
 
         $book= new Book();
         $book->title=$title;
         $book->author=$author;
         $book->description=$description;
-        $book->mail=$email;
         // dd($book);
-    Mail::to($email)->send(new ContactMail($title, $author, $description, $email));
+    // Mail::to($email)->send(new ContactMail($title, $author, $description, $email));
         $book->save();
         return redirect()->route('thankYou.page');
 }

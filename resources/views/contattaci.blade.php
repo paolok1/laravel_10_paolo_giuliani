@@ -18,10 +18,6 @@
     <label for="inputDescription" class="form-label ml-3">Descrizione</label>
     <textarea name="description" class="form-control" id="inputDescription"></textarea>
   </div>
-    <!-- <div class="mb-3">
-    <label for="inputEmail" class="form-label ml-3">Email</label>
-    <input name="mail" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
-  </div> -->
   <button type="submit" class="btn btn-danger mb-2">Invia</button>
 </form>
         </div>
