@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-center bg-dark">Contatti</h1>
+    <h1 class="text-center bg-dark">Inserisci qui il prodotto</h1>
 
     <div class="container">
     <div class="row mt-5 justify-content-center">
@@ -18,10 +18,10 @@
     <label for="inputDescription" class="form-label ml-3">Descrizione</label>
     <textarea name="description" class="form-control" id="inputDescription"></textarea>
   </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
     <label for="inputEmail" class="form-label ml-3">Email</label>
     <input name="mail" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
-  </div>
+  </div> -->
   <button type="submit" class="btn btn-danger mb-2">Invia</button>
 </form>
         </div>
