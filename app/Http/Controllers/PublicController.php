@@ -10,36 +10,23 @@ use Illuminate\Support\Facades\Mail;
 class PublicController extends Controller
 {
     public function homepage () {
-    return view('welcome');
+    $books = Book::all();
+    return view('welcome', ['books'=> $books]);
+    
 }
 
 public function contactUs(){
     return view('contattaci');
 }
 
-public function thankYou(){
-    return view('thankYou');
-}
+
+// public function thankYou(){
+//     return view('thankYou');
+// }
 
 public function booksList(){
     return view('books');
 }
 
-public function store(Request $request){
-    
-    
-        $title= $request->title;
-        $author= $request->author;
-        $description= $request->description;
-        
 
-        $book= new Book();
-        $book->title=$title;
-        $book->author=$author;
-        $book->description=$description;
-        // dd($book);
-    // Mail::to($email)->send(new ContactMail($title, $author, $description, $email));
-        $book->save();
-        return redirect()->route('thankYou.page');
-}
 }

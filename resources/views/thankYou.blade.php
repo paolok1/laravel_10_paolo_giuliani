@@ -1,6 +1,6 @@
-<x-layout>
+<!-- <x-layout> -->
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row height-custom align-items-center justify-content-center">
         <div class="col-12 py-2 box-bg text-center text-black">
             <h1 class="text-center display-4 title">
@@ -9,6 +9,6 @@
         </div>
     </div>
 
-</div>
+</div> -->
 
-</x-layout>
+<!-- </x-layout> -->
