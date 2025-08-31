@@ -10,6 +10,7 @@ class Book extends Model
         'title',
         'author',
         'description',
-        'mail'
+        'mail',
+        'img'
     ];
 }
