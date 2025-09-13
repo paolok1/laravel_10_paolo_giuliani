@@ -2,15 +2,8 @@
     <h1 class="text-center bg-dark">Inserisci qui il prodotto</h1>
 
     
-      @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+     <x-display_errors/>
+     
     <div class="container">
     <div class="row mt-5 justify-content-center">
         <div class="col-12-col-md-6 justify-content-center">
