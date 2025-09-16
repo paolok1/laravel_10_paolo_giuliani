@@ -25,6 +25,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('contact.us')}}">Form</a>
           </li>
+                    <li class="nav-item">
+            <a class="nav-link" href="{{route('detail.index')}}">I miei Libri</a>
+          </li>
             
             @guest
 
@@ -38,6 +41,9 @@
             @auth
             <li class="nav-item">
               <a class="nav-link" href="#">Benvenut* {{Auth::user()->name}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('detail.create')}}">Inserisci libro</a>
             </li>
           <li class="nav-item">
             <form

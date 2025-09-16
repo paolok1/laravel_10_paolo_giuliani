@@ -15,7 +15,7 @@ class ProductController extends Controller
         $title= $request->title;
         $author= $request->author;
         $description= $request->description;
-        $img= $request->file('img')->store('img','public');
+        $img = $request->file('img')->store('img');
         // dd($request->all());
 
         
@@ -27,13 +27,13 @@ class ProductController extends Controller
         // dd($book);
     // Mail::to($email)->send(new ContactMail($title, $author, $description, $email));
         $book->save();
-        return redirect()->route('home')->with('success','libro inserito correttamente!');
+        return redirect()->route('booksList')->with('success','libro inserito correttamente!');
 }
 
 
 
     public function bookList(){
     $books = Book::all();
-    return view('book-list', ['books'=> $books]);
+    return view('booksList', ['books'=> $books]);
 }
 }

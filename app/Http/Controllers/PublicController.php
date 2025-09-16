@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Mail;
 
 class PublicController extends Controller
 {
-    public function homepage () {
-    $books = Book::all();
-    return view('welcome', ['books'=> $books]);
+    public function homepage (){
+    // $books = Book::all();
+    return view('welcome');
     
 }
 
 public function contactUs(){
-    return view('contattaci');
+    return view('create');
 }
 
 
@@ -25,7 +25,8 @@ public function contactUs(){
 // }
 
 public function booksList(){
-    return view('books');
+    $books = Book::all();
+    return view('books', ['books'=> $books]);
 }
 
 

@@ -2,7 +2,7 @@
     <h1 class="text-center bg-dark">Inserisci qui il prodotto</h1>
 
     
-     <x-display_errors/>
+     <x-display-errors/>
      
     <div class="container">
     <div class="row mt-5 justify-content-center">
@@ -26,6 +26,7 @@
     <label for="img" class="form-label ml-3">inserisci immagine</label>
     <input name="img" type="file" class="form-control" id="img">
   </div>
+
   <button type="submit" class="btn btn-danger mb-2">Invia</button>
 </form>
         </div>
