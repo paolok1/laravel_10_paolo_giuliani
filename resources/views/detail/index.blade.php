@@ -19,6 +19,7 @@
                         <p class="card-text">{{$detail->description}}</p>
                         <p class="card-text">{{$detail->body}}</p>
                         <a href="{{route('detail.show', compact('detail') )}}" class="btn btn-primary">Descrizione</a>
+                        <a href="{{route('detail.edit', compact('detail') )}}" class="btn btn-primary mt-2">Modifica</a>
                     </div>
                 </div>
             </div>

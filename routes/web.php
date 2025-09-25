@@ -22,7 +22,7 @@ Route::get('/books', [PublicController::class, 'booksList'])->name('books');
 // Rotte ProductController
 Route::get('/book/index', [ProductController::class, 'bookList'])->name('booksList')->middleware('auth');
 
-// DetailController
+// DetailController (CRUD)
 
 Route::get('/detail/create', [DetailController::class, 'create' ])->name('detail.create')->middleware('auth');
 Route::post('/detail/store', [DetailController::class, 'store' ])->name('detail.store')->middleware('auth');
@@ -30,3 +30,9 @@ Route::post('/detail/store', [DetailController::class, 'store' ])->name('detail.
 Route::get('/detail/index', [DetailController::class, 'index'])->name('detail.index')->middleware('auth');
 
 Route::get('/detail/show/{detail}', [DetailController::class, 'show'])->name('detail.show');
+
+Route::get('/detail/edit/{detail}', [DetailController::class, 'edit'])->name('detail.edit');
+
+Route::put('/detail/update/{detail}', [DetailController::class, 'update'])->name('detail.update');
+
+Route::delete('/detail/delete/{detail}', [DetailController::class, 'destroy'])->name('detail.delete');

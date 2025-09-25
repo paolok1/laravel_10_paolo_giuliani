@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DetailEditRequest;
 use App\Models\Detail;
 use Illuminate\Http\Request;
 
@@ -29,18 +30,19 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        $title= $request->title;
-        $description= $request->description;
-        $body= $request->body;
-        $img= $request->file('img')->store('public', 'img');
+        // $title= $request->$title;
+        // $description= $request->$description;
+        // $body= $request->$body;
+        // $img= $request->file('img')->store('img', 'public');
 
 
         Detail::create([
-        'title' => $title,
-        'description' => $description,
-        'body' => $body,
-        'img' => $img,
+        'title' => $request->title,
+        'description' => $request->description,
+        'body' => $request->body,
+        'img' => $request->file('img')->store('img', 'public')
         ]);
+        // dd($request->all());
 
         return redirect()->back()->with('message', 'libro inserito correttamente!');
     }
@@ -59,15 +61,26 @@ class DetailController extends Controller
      */
     public function edit(Detail $detail)
     {
-        //
+        return view('detail.edit', compact('detail'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Detail $detail)
+    public function update(DetailEditRequest $request, Detail $detail)
     {
-        //
+        $detail->update([
+            $detail->title = $request->title,
+            $detail->description = $request->description,
+            $detail->body = $request->body,
+        ]);
+        if($request->img){
+            $request->validate(['img' => 'image']);
+            $detail->update([
+                $detail->img = $request->file('img')->store('img', 'public')
+            ]);
+        }
+        return redirect()->back()->with('message', 'Hai modificato correttamente il libro!');
     }
 
     /**
@@ -75,6 +88,7 @@ class DetailController extends Controller
      */
     public function destroy(Detail $detail)
     {
-        //
+        $detail->delete();
+        return redirect()->back()->with('message', 'Hai eliminato correttamente il libro!');
     }
 }
