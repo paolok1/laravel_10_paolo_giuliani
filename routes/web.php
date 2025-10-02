@@ -11,28 +11,27 @@ Route::get('/', [ PublicController::class, 'homepage'])->name('home');
 
 Route::get('/create', [PublicController::class, 'contactUs'])->name('contact.us')->middleware('auth');
 
-Route::post('/contattaci/submit', [ProductController::class, 'store'])->name('book-store')->middleware('auth');
-
-// Route::get('/thank-you', [PublicController::class, 'thankYou'])->name('thankYou.page');
 
 // Rotta pagina Books
 
 Route::get('/books', [PublicController::class, 'booksList'])->name('books');
 
 // Rotte ProductController
+Route::post('/contattaci/submit', [ProductController::class, 'store'])->name('book-store')->middleware('auth');
+
 Route::get('/book/index', [ProductController::class, 'bookList'])->name('booksList')->middleware('auth');
 
 // DetailController (CRUD)
 
-Route::get('/detail/create', [DetailController::class, 'create' ])->name('detail.create')->middleware('auth');
-Route::post('/detail/store', [DetailController::class, 'store' ])->name('detail.store')->middleware('auth');
+Route::get('/product/create', [ProductController::class, 'create' ])->name('product.create')->middleware('auth');
+Route::post('/product/store', [ProductController::class, 'storeDetail' ])->name('product.store')->middleware('auth');
 
-Route::get('/detail/index', [DetailController::class, 'index'])->name('detail.index')->middleware('auth');
+Route::get('/product/index', [ProductController::class, 'index'])->name('product.index')->middleware('auth');
 
-Route::get('/detail/show/{detail}', [DetailController::class, 'show'])->name('detail.show');
+Route::get('/product/show/{product}', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/detail/edit/{detail}', [DetailController::class, 'edit'])->name('detail.edit');
+Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
 
-Route::put('/detail/update/{detail}', [DetailController::class, 'update'])->name('detail.update');
+Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');
 
-Route::delete('/detail/delete/{detail}', [DetailController::class, 'destroy'])->name('detail.delete');
+Route::delete('/product/delete/{product}', [ProductController::class, 'delete'])->name('product.delete');
