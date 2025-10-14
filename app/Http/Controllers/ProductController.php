@@ -33,13 +33,6 @@ class ProductController extends Controller
 }
 
 
-
-    public function bookList(){
-    $books = Book::all();
-    return view('booksList', ['books'=> $books]);
-}
-
-
  public function index()
     {
         $products= Product::all();

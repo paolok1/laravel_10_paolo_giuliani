@@ -11,11 +11,6 @@ Route::get('/', [ PublicController::class, 'homepage'])->name('home');
 
 Route::get('/create', [PublicController::class, 'contactUs'])->name('contact.us')->middleware('auth');
 
-
-// Rotta pagina Books
-
-Route::get('/books', [PublicController::class, 'booksList'])->name('books');
-
 // Rotte ProductController
 Route::post('/contattaci/submit', [ProductController::class, 'store'])->name('book-store')->middleware('auth');
 
