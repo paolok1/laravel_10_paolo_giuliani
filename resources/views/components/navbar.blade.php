@@ -16,12 +16,6 @@
       </button>
       <div class="navbar display-flex" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('booksList')}}">Elenco prodotti</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('contact.us')}}">Form</a>
-          </li>
                     <li class="nav-item">
             <a class="nav-link" href="{{route('product.index')}}">I miei Libri</a>
           </li>

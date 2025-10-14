@@ -20,14 +20,11 @@ public function contactUs(){
 }
 
 
-// public function thankYou(){
-//     return view('thankYou');
-// }
 
-public function booksList(){
-    $books = Book::all();
-    return view('books', ['books'=> $books]);
-}
+// public function booksList(){
+//     $books = Book::all();
+//     return view('books', ['books'=> $books]);
+// }
 
 
 }

@@ -14,21 +14,21 @@
     <div class="container">
     <div class="row mt-5 justify-content-center">
         <div class="col-12-col-md-6 justify-content-center">
-<form class="bg-dark rounded-2 shadow p-3" method="POST" action="{{route('detail.update', compact('detail'))}}" 
+<form class="bg-dark rounded-2 shadow p-3" method="POST" action="{{route('product.update', compact('product'))}}" 
   enctype="multipart/form-data">
     @csrf
     @method('PUT')
   <div class="mb-3">
     <label for="title" class="form-label ml-3">Titolo</label>
-    <input name="title" type="text" value="{{$detail->title}}" class="form-control" id="title">
+    <input name="title" type="text" value="{{$product->title}}" class="form-control" id="title">
   </div>
   <div class="mb-3">
     <label for="description" class="form-label ml-3">Descrizione</label>
-    <textarea name="description" cols="30" class="form-control" id="description">{{$detail->description}}</textarea>
+    <textarea name="description" cols="30" class="form-control" id="description">{{$product->description}}</textarea>
   </div>
   <div class="mb-3">
   <label for="body" class="form-label ml-3">Autore</label>
-  <input name="body" type="text" value="{{$detail->body}}" class="form-control" id="body">
+  <input name="body" type="text" value="{{$product->body}}" class="form-control" id="body">
 </div>
     <div class="mb-3">
     <label for="img" class="form-label ml-3">inserisci immagine</label>

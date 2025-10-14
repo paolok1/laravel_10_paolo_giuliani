@@ -14,22 +14,22 @@ class ProductController extends Controller
     public function store(BookRequest $request){
     
         // dd($request->all());
-        $title= $request->title;
-        $author= $request->author;
-        $description= $request->description;
-        $img = $request->file('img')->store('img');
+        // $title= $request->title;
+        // $author= $request->author;
+        // $description= $request->description;
+        // $img = $request->file('img')->store('img');
         // dd($request->all());
 
         
-        $book= new Book();
-        $book->title=$title;
-        $book->author=$author;
-        $book->description=$description;
-        $book->img=$img;
+        // $book= new Book();
+        // $book->title=$title;
+        // $book->author=$author;
+        // $book->description=$description;
+        // $book->img=$img;
         // dd($book);
     // Mail::to($email)->send(new ContactMail($title, $author, $description, $email));
-        $book->save();
-        return redirect()->route('booksList')->with('success','libro inserito correttamente!');
+        // $book->save();
+        // return redirect()->route('booksList')->with('success','libro inserito correttamente!');
 }
 
 
@@ -58,12 +58,15 @@ class ProductController extends Controller
         // $img= $request->file('img')->store('img', 'public');
 
 
-        Product::create([
+       $product = Product::create([
         'title' => $request->title,
         'description' => $request->description,
-        'body' => $request->body,
-        'img' => $request->file('img')->store('img', 'public')
+        'body' => $request->body
         ]);
+        if ($request->file('img')) {
+            $product->img = $request->file('img')->store('img', 'public');
+            $product->save();
+        }
         // dd($request->all());
 
         return redirect()->back()->with('message', 'libro inserito correttamente!');
