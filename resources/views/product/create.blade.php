@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-center bg-dark">Dettagli</h1>
+    <h1 class="text-center bg-dark">Crea un libro</h1>
     <div>
       <h1>@if (session('message'))
     <div class="alert alert-success">

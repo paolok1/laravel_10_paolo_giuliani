@@ -3,7 +3,7 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center text-4xl">
             <div class="col-12 col-md-6 d-flex justify-content-center">
-                <h1 class="homepage text-center">Libro con id: {{$product->id}}</h1>
+                <h1 class="homepage text-center">Dettaglio del libro: {{$product->title}}</h1>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="{{route('product.delete', compact('product'))}}" method="post">
+                <form action="{{route('product.destroy', compact('product'))}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger mb-3" type="submit">Elimina il libro</button>

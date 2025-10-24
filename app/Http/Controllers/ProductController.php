@@ -11,7 +11,7 @@ use App\Http\Requests\ProductEditRequest;
 class ProductController extends Controller
 {
 
-    public function store(BookRequest $request){
+    // public function store(BookRequest $request){
     
         // dd($request->all());
         // $title= $request->title;
@@ -30,7 +30,7 @@ class ProductController extends Controller
     // Mail::to($email)->send(new ContactMail($title, $author, $description, $email));
         // $book->save();
         // return redirect()->route('booksList')->with('success','libro inserito correttamente!');
-}
+// }
 
 
  public function index()
@@ -50,7 +50,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function storeDetail(Request $request)
+    public function store(Request $request)
     {
         // $title= $request->$title;
         // $description= $request->$description;
@@ -114,7 +114,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect('/product/index')->with('message', 'Hai eliminato correttamente il libro!');
+        return redirect()->route('product.index')->with('message', 'Hai eliminato correttamente il libro!');
     }
 
 }
