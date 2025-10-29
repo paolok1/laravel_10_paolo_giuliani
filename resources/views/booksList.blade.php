@@ -1,4 +1,4 @@
-<x-layout>
+<!-- <x-layout>
   <header class="header">
     <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="row h-100 text-4xl">
@@ -26,4 +26,4 @@
         </div>
     </div>
 
-</x-layout>
+</x-layout> -->

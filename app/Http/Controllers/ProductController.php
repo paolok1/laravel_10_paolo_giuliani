@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
@@ -61,7 +62,8 @@ class ProductController extends Controller
        $product = Product::create([
         'title' => $request->title,
         'description' => $request->description,
-        'body' => $request->body
+        'body' => $request->body,
+        'user_id'=> Auth::user()->id
         ]);
         if ($request->file('img')) {
             $product->img = $request->file('img')->store('img', 'public');
