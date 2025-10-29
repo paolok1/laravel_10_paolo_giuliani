@@ -24,16 +24,17 @@ class ProductEditRequest extends FormRequest
         return [
         'title' => 'required | min:3',
         'description' => 'required',
+        'body' => 'required'
         
     ];
         
     }
-    public function message(){
+    public function messages(){
         return[
-            'title.required'=>'Il titolo è obbligatorio!',
-            'title.min'=>'Il titolo deve avere almeno 3 caratteri!',
-            'description.required'=>'La descrizione è obbligatoria!',
-            
+            'title.required' => 'Il titolo è obbligatorio!',
+            'title.min' => 'Il titolo deve avere almeno 3 caratteri!',
+            'description.required' => 'La descrizione è obbligatoria!',
+            'body.required' => 'Nome autore obbligatorio!'            
         ];
 
     }

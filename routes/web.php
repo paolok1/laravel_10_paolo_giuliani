@@ -15,13 +15,13 @@ Route::post('/contattaci/submit', [ProductController::class, 'store'])->name('bo
 // DetailController (CRUD)
 
 Route::get('/product/create', [ProductController::class, 'create' ])->name('product.create')->middleware('auth');
-Route::post('/product/store', [ProductController::class, 'storeDetail' ])->name('product.store')->middleware('auth');
+Route::post('/product/store', [ProductController::class, 'store' ])->name('product.store')->middleware('auth');
 
 Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
 
 Route::get('/product/show/{product}', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit')->middleware('auth');;
+Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit')->middleware('auth');
 
 Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');
 

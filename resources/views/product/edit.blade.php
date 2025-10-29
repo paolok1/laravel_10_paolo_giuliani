@@ -14,7 +14,7 @@
     <div class="container">
     <div class="row mt-5 justify-content-center">
         <div class="col-12-col-md-6 justify-content-center">
-<form class="bg-dark rounded-2 shadow p-3" method="POST" action="{{route('product.update', compact('product'))}}" 
+<form class="bg-dark rounded-2 shadow p-3" method="POST" action="{{route('product.update', $product)}}" 
   enctype="multipart/form-data">
     @csrf
     @method('PUT')
