@@ -2,39 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+
 use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
 {
-
-    // public function store(BookRequest $request){
-    
-        // dd($request->all());
-        // $title= $request->title;
-        // $author= $request->author;
-        // $description= $request->description;
-        // $img = $request->file('img')->store('img');
-        // dd($request->all());
-
-        
-        // $book= new Book();
-        // $book->title=$title;
-        // $book->author=$author;
-        // $book->description=$description;
-        // $book->img=$img;
-        // dd($book);
-    // Mail::to($email)->send(new ContactMail($title, $author, $description, $email));
-        // $book->save();
-        // return redirect()->route('booksList')->with('success','libro inserito correttamente!');
-// }
-
-
- public function index()
+    public function index()
     {
         $products= Product::all();
         return view('product.index', compact('products'));
@@ -79,8 +55,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        // dd($detail);
-        return view('product.show', compact('product'));
+       if ($product->user_id !== Auth::id()) {
+        abort(403, 'Non sei autorizzato a visualizzare questo libro.');
+    }
+
+    return view('product.show', compact('product'));
     }
 
     /**
@@ -88,6 +67,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+            if ($product->user_id !== Auth::id()) {
+            abort(403, 'Non sei autorizzato a modificare questo libro.');
+    }
         return view('product.edit', compact('product'));
     }
 
@@ -118,5 +100,12 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('product.index')->with('message', 'Hai eliminato correttamente il libro!');
     }
+
+    public function myProducts()
+{
+    $products = Product::where('user_id', Auth::id())->get();
+    return view('product.my_products', compact('products'));
+}
+
 
 }

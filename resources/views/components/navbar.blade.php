@@ -17,8 +17,14 @@
       <div class="navbar display-flex" id="navbarNav">
         <ul class="navbar-nav">
                     <li class="nav-item">
-            <a class="nav-link" href="{{route('product.index')}}">I miei Libri</a>
+            <a class="nav-link" href="{{route('product.index')}}">Libri</a>
           </li>
+          @auth
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('product.my') }}">I miei libri</a>
+          </li>
+          @endauth
+
             
             @guest
 
