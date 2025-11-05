@@ -22,9 +22,10 @@ class ProductEditRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'title' => 'required | min:3',
+        'title' => 'required|min:3',
         'description' => 'required',
-        'body' => 'required'
+        'body' => 'required',
+        'img' => 'nullable|image|max:2048'
         
     ];
         
@@ -34,7 +35,10 @@ class ProductEditRequest extends FormRequest
             'title.required' => 'Il titolo è obbligatorio!',
             'title.min' => 'Il titolo deve avere almeno 3 caratteri!',
             'description.required' => 'La descrizione è obbligatoria!',
-            'body.required' => 'Nome autore obbligatorio!'            
+            'body.required' => 'Nome autore obbligatorio!', 
+            'img.image' => 'Il file deve essere un\'immagine valida!',
+            'img.max' => 'L\'immagine non può superare i 2MB!'
+          
         ];
 
     }

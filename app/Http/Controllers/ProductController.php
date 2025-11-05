@@ -29,10 +29,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // $title= $request->$title;
-        // $description= $request->$description;
-        // $body= $request->$body;
-        // $img= $request->file('img')->store('img', 'public');
+    request()->validate([
+    'title' => 'required|min:3|max:255',
+    'description' => 'required|max:500',
+    'body' => 'required',
+    'img' => 'nullable|image|max:2048'
+],
+[
+    'title.required' => 'Il titolo è obbligatorio!',
+    'title.min' => 'Il titolo deve avere almeno 3 caratteri!',
+    'description.required' => 'La descrizione è obbligatoria!',
+    'body.required' => 'Nome autore obbligatorio!', 
+    'img.image' => 'Il file deve essere un\'immagine valida!',
+    'img.max' => 'L\'immagine non può superare i 2MB!'
+]);
+
+
+
 
 
        $product = Product::create([
@@ -43,9 +56,13 @@ class ProductController extends Controller
         ]);
         if ($request->file('img')) {
             $product->img = $request->file('img')->store('img', 'public');
-            $product->save();
+            
+        }else{
+            $product->img = 'img/default-png';
         }
-        // dd($request->all());
+
+        $product->save();
+        
 
         return redirect()->back()->with('message', 'libro inserito correttamente!');
     }
@@ -86,7 +103,7 @@ class ProductController extends Controller
         if($request->img){
             $request->validate(['img' => 'image']);
             $product->update([
-                $product->img = $request->file('img')->store('img', 'public')
+            $product->img = $request->file('img')->store('img', 'public')
             ]);
         }
         return redirect()->back()->with('message', 'Hai modificato correttamente il libro!');

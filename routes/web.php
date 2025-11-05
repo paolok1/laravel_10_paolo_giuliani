@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Providers\FortifyServiceProvider;
-use App\Http\Controllers\DetailController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProductController;
 
@@ -12,7 +11,7 @@ Route::get('/', [ PublicController::class, 'homepage'])->name('home');
 // Rotte ProductController
 Route::post('/contattaci/submit', [ProductController::class, 'store'])->name('book-store')->middleware('auth');
 
-// DetailController (CRUD)
+// ProductController (CRUD)
 
 Route::get('/product/create', [ProductController::class, 'create' ])->name('product.create')->middleware('auth');
 Route::post('/product/store', [ProductController::class, 'store' ])->name('product.store')->middleware('auth');
