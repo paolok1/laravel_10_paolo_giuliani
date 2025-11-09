@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$product->title}}</h5>
                         <p class="card-text">{{$product->description}}</p>
-                        <p class="card-text">{{$product->body}}</p>
+                        <p class="card-text"><strong>Libro scritto da: </strong>{{$product->body}}</p>
                         
                     </div>
                 </div>
