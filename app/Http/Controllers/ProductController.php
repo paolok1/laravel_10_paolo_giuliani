@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
@@ -96,16 +97,19 @@ class ProductController extends Controller
     public function update(ProductEditRequest $request, Product $product)
     {
         $product->update([
-            $product->title = $request->title,
-            $product->description = $request->description,
-            $product->body = $request->body,
+        $product->title = $request->title,
+        $product->description = $request->description,
+        $product->body = $request->body,
         ]);
-        if($request->img){
+
+        if($request->file('img')){
+            Storage::disk('public')->delete($product->img);
             $request->validate(['img' => 'image']);
-            $product->update([
-            $product->img = $request->file('img')->store('img', 'public')
-            ]);
+            $product->update([$product->img = $request->file('img')->store('img', 'public')
+        ]);
+            
         }
+        
         return redirect()->back()->with('message', 'Hai modificato correttamente il libro!');
     }
 

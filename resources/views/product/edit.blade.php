@@ -30,6 +30,10 @@
   <label for="body" class="form-label ml-3">Autore</label>
   <input name="body" type="text" value="{{$product->body}}" class="form-control" id="body">
 </div>
+    <div class="mb-3 img-fluid h-20 w-20">
+    <span class="form-label ml-3">immagine attuale:</span>
+    <img src="{{Storage::url($product->img)}}" alt="immagine copertina">
+    </div>
     <div class="mb-3">
     <label for="img" class="form-label ml-3">inserisci immagine</label>
     <input name="img" type="file" class="form-control d-flex me-3" id="img">
